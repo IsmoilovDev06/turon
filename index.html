@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>«Turon» Tanlov Ssenariysi</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Lora', Georgia, serif;
+    background: #f5f0e8;
+    color: #2c1a0e;
+    line-height: 1.8;
+  }
+
+  .page {
+    max-width: 820px;
+    margin: 0 auto;
+    background: #fffdf7;
+    box-shadow: 0 4px 40px rgba(0,0,0,0.15);
+    border-left: 6px solid #8B0000;
+  }
+
+  /* COVER */
+  .cover {
+    background: linear-gradient(160deg, #1a2a4a 0%, #2c1a0e 60%, #8B0000 100%);
+    color: #f5e6c8;
+    text-align: center;
+    padding: 80px 60px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.4;
+  }
+
+  .cover-icon { font-size: 56px; margin-bottom: 20px; }
+
+  .cover h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #f5e6c8;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    margin-bottom: 12px;
+  }
+
+  .cover h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    font-style: italic;
+    color: #d4a843;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+  }
+
+  .cover-meta {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .meta-badge {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(212,168,67,0.5);
+    border-radius: 20px;
+    padding: 6px 18px;
+    font-size: 13px;
+    color: #d4a843;
+    letter-spacing: 1px;
+  }
+
+  /* BODY CONTENT */
+  .content { padding: 50px 60px; }
+
+  /* SECTION HEADERS */
+  .part-header {
+    background: linear-gradient(90deg, #1a2a4a, #2c4a7a);
+    color: #f5e6c8;
+    padding: 14px 24px;
+    margin: 40px -60px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-left: 5px solid #d4a843;
+  }
+
+  .part-num {
+    background: #d4a843;
+    color: #1a2a4a;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 3px 10px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+
+  .part-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .part-time {
+    margin-left: auto;
+    font-size: 13px;
+    color: #d4a843;
+    white-space: nowrap;
+    font-style: italic;
+  }
+
+  /* CHARACTERS LIST */
+  .characters {
+    background: #f9f4ea;
+    border: 1px solid #e0d0b0;
+    border-radius: 6px;
+    padding: 28px 32px;
+    margin-bottom: 32px;
+  }
+
+  .characters h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: #8B0000;
+    margin-bottom: 18px;
+    border-bottom: 2px solid #d4a843;
+    padding-bottom: 10px;
+  }
+
+  .char-group { margin-bottom: 16px; }
+
+  .char-group-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #8B0000;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+
+  .char-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 7px 0;
+    border-bottom: 1px dashed #e0d0b0;
+  }
+
+  .char-name {
+    font-weight: 700;
+    color: #1a2a4a;
+    min-width: 100px;
+    font-size: 15px;
+  }
+
+  .char-desc {
+    color: #555;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  /* DIALOGUE */
+  .dialogue-block { margin: 14px 0; }
+
+  .speaker-line {
+    display: flex;
+    gap: 12px;
+    margin: 10px 0;
+    align-items: flex-start;
+  }
+
+  .speaker {
+    font-weight: 700;
+    color: #8B0000;
+    font-size: 15px;
+    min-width: 90px;
+    padding-top: 1px;
+    flex-shrink: 0;
+  }
+
+  .speech {
+    font-size: 15px;
+    color: #2c1a0e;
+    line-height: 1.75;
+    flex: 1;
+  }
+
+  .speech em {
+    color: #555;
+    font-style: italic;
+    font-size: 14px;
+  }
+
+  /* STAGE DIRECTIONS */
+  .stage {
+    background: #f0ede6;
+    border-left: 3px solid #aaa;
+    padding: 10px 16px;
+    margin: 12px 0;
+    font-style: italic;
+    font-size: 14px;
+    color: #555;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .stage::before { content: '▶ '; color: #8B0000; font-style: normal; font-size: 12px; }
+
+  /* POETRY */
+  .poetry {
+    background: linear-gradient(135deg, #f9f4ea, #f5f0e8);
+    border: 1px solid #d4a843;
+    border-radius: 6px;
+    padding: 20px 28px;
+    margin: 16px 0;
+    font-style: italic;
+    line-height: 2;
+    color: #2c1a0e;
+  }
+
+  .poetry .poet-name {
+    font-weight: 600;
+    color: #8B0000;
+    font-style: normal;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  /* FINAL CHORUS */
+  .chorus {
+    background: linear-gradient(135deg, #1a2a4a, #2c4a7a);
+    color: #f5e6c8;
+    text-align: center;
+    padding: 30px 40px;
+    border-radius: 6px;
+    margin: 24px 0;
+    border: 2px solid #d4a843;
+  }
+
+  .chorus .label {
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #d4a843;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .chorus p {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 700;
+    line-height: 1.7;
+    color: #f5e6c8;
+  }
+
+  /* NOTES */
+  .notes {
+    background: #fff8f0;
+    border: 1px solid #e0c090;
+    border-radius: 6px;
+    padding: 24px 28px;
+    margin: 32px 0;
+  }
+
+  .notes h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: #8B0000;
+    margin-bottom: 14px;
+  }
+
+  .notes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .note-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .note-icon { font-size: 18px; flex-shrink: 0; }
+
+  /* DIVIDER */
+  .divider {
+    border: none;
+    border-top: 2px solid #d4a843;
+    margin: 32px 0;
+    opacity: 0.4;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: linear-gradient(90deg, #1a2a4a, #8B0000);
+    color: #f5e6c8;
+    text-align: center;
+    padding: 30px;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-style: italic;
+    letter-spacing: 1px;
+  }
+
+  @media print {
+    .page { box-shadow: none; }
+    .part-header { margin: 40px 0 24px; }
+    body { background: white; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- MUQOVA -->
+  <div class="cover">
+    <div class="cover-icon">🏫</div>
+    <h1>«TURON» TANLOVIGA</h1>
+    <h2>Maktab Hayoti va Yutuqlari Ssenariysi</h2>
+    <div class="cover-meta">
+      <span class="meta-badge">⏱ 6 daqiqa</span>
+      <span class="meta-badge">👥 8 ishtirokchi</span>
+      <span class="meta-badge">👧 3 qiz  •  👦 5 o'g'il</span>
+      <span class="meta-badge">✨ Antiq • Nostalgik • Kreativ</span>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- ISHTIROKCHILAR -->
+    <div class="characters">
+      <h3>🎭 ISHTIROKCHILAR</h3>
+
+      <div class="char-group">
+        <div class="char-group-title">👧 Qizlar (3 nafar)</div>
+        <div class="char-item"><span class="char-name">Nilufar</span><span class="char-desc">Bosh qahramon — o'tkir zehnli "Maktab Muharrir"i, sahnani boshqaruvchi</span></div>
+        <div class="char-item"><span class="char-name">Sarvinoz</span><span class="char-desc">Shoir — she'riy ruhi bilan sahnani boyituvchi, tabiiy his-hayajon sohibasi</span></div>
+        <div class="char-item"><span class="char-name">Mohira</span><span class="char-desc">Raqqosa va sportchi — respublika chempioni, harakatda o'zini ifodalovchi</span></div>
+      </div>
+
+      <div class="char-group">
+        <div class="char-group-title">👦 O'g'illar (5 nafar)</div>
+        <div class="char-item"><span class="char-name">Mirzo</span><span class="char-desc">Matematik dahosi — olimpiada g'olibi, raqamlar tilida gapiruvchi</span></div>
+        <div class="char-item"><span class="char-name">Sherzod</span><span class="char-desc">Muhandis — ixtirochi miyasi, qog'ozdan raketa yasovchi dahо</span></div>
+        <div class="char-item"><span class="char-name">Asilbek</span><span class="char-desc">San'atkor — chiziq va ranglar tili bilan hayotni tasvir etuvchi</span></div>
+        <div class="char-item"><span class="char-name">Jasur</span><span class="char-desc">Tarixchi — o'tmishni hozirga ko'prikladigan, kitob doimi qo'lida</span></div>
+        <div class="char-item"><span class="char-name">Temur</span><span class="char-desc">Kapitan — jamoa ruhi, g'alaba va birlik timsoli</span></div>
+      </div>
+    </div>
+
+    <!-- 1-QISM -->
+    <div class="part-header">
+      <span class="part-num">1-QISM</span>
+      <span class="part-title">"Xotiraning Oynasi" — Ochiluv</span>
+      <span class="part-time">0:00 – 0:45</span>
+    </div>
+
+    <div class="stage">Sahna to'liq qorong'u. Faqat og'ir soat tiki-takisi eshitiladi. Barcha 8 o'quvchi sahnada harakatsiz turadi — go'yo eskiz, go'yo muzlatilgan xotira. Mirzo sekin oldinga chiqib, doska yoniga boradi va bo'r bilan yozadi: «Bugun necha kun?» — Javob yozmaydi. Orqaga qaytib, harakatsiz to'xtaydi.</div>
+
+    <div class="speaker-line">
+      <span class="speaker">Sarvinoz:</span>
+      <span class="speech"><em>(ko'zlari yumiq, ohangdor ovozda)</em></span>
+    </div>
+
+    <div class="poetry">
+      <div class="poet-name">Sarvinoz she'r o'qiydi:</div>
+      Bir maktab bor edi — devorlariga yillar o'rnashgan,<br>
+      har partasida ming bolaning orzusi yashirin...<br>
+      Biz ham shu orzulardan to'qilgan edik —<br>
+      bugun sizga o'sha orzularni olib keldik.
+    </div>
+
+    <div class="stage">Sherzod bir lampochka ko'taradi — yonadi. Sahna to'satdan yorishadi. Barcha birdan "hayot"ga keladi — harakat, tabassum, ko'z aloqasi.</div>
+
+    <div class="speaker-line">
+      <span class="speaker">Jasur:</span>
+      <span class="speech">Tarix — bu shunchaki sanalar emas. <em>(kitob ko'taradi)</em> Bu bizning izlarimiz!</span>
+    </div>
+
+    <div class="speaker-line">
+      <span class="speaker">Nilufar:</span>
+      <span class="speech"><em>(qog'oz ko'tarib, tomoshabinga qarab)</em> Va biz shu izlarni — HOZIR — sizga ko'rsatmoqchimiz!</span>
+    </div>
+
+    <div class="stage">Barcha birga tomoshabinga qaraydi. 2 soniya mutlaq sukunat...</div>
+
+    <div class="chorus">
+      <div class="label">Hammasi birga — baland ovozda</div>
+      <p>«XUSH KELIBSIZ —<br>BIZNING MAKTABIMIZGA!»</p>
+    </div>
+
+    <!-- 2-QISM -->
+    <div class="part-header">
+      <span class="part-num">2-QISM</span>
+      <span class="part-title">"Yutuqlar Galereyasi" — Kim Biz?</span>
+      <span class="part-time">0:45 – 2:30</span>
+    </div>
+
+    <div class="stage">Har bir o'quvchi navbatma-navbat oldinga chiqib o'zini taqdim etadi — oddiy emas, balki teatral, hissiy va original tarzda. Qolganlar orqada jonli "dekor" sifatida turadi.</div>
+
+    <div class="speaker-line">
+      <span class="speaker">Mirzo:</span>
+      <span class="speech"><em>(kalkulyatorni mehribon tutib, unga qaraydi)</em> Men — raqamlar bilan do'stman. Olimpiada g'olibi... lekin...</span>
+    </div>
+    <div class="stage">To'xtaydi. Kalkulyatorni sekin partaga qo'yadi.</div>
+    <div class="speaker-line">
+      <span class="speaker">Mirzo:</span>
+      <span class="speech">...birinchi "besh" olgan kunim — o'qituvchim yig'lagan edi. O'shanda bildim: raqamlar faqat baholar emas — bu sevgi tili.</span>
+    </div>
+
+    <hr class="divider">
+
+    <div class="speaker-line">
+      <span class="speaker">Mohira:</span>
+      <span class="speech"><em>(sport sumkasi bilan markazga chiqib)</em> Men yugurdim — respublika chempioni bo'ldim! Lekin eng katta yutuqim...</span>
+    </div>
+    <div class="stage">To'xtab, atrofga, sinfdoshlariga qaraydi.</div>
+    <div class="speaker-line">
+      <span class="speaker">Mohira:</span>
+      <span class="speech">...shu maktab hovlisida birinchi bor yiqilganimda — sinfdoshlarim qo'limdan tutib turgizgani!</span>
+    </div>
+    <div class="stage">Jasur va Temur simvolik tarzda Mohiraga qo'l uzatadi.</div>
+
+    <hr class="divider">
+
+    <div class="speaker-line">
+      <span class="speaker">Sherzod:</span>
+      <span class="speech"><em>(qog'ozdan yasalgan raketani ko'tarib)</em> Fanlar olimpiadasi — 1-o'rin! Bu raketani maktab laboratoriyasida yig'dik — o'qituvchim bilan tun bo'yi!</span>
+    </div>
+    <div class="stage">Raketani yuqoriga ko'taradi. Barcha qo'l chapak chaladi.</div>
+
+    <hr class="divider">
+
+    <div class="speaker-line">
+      <span class="speaker">Asilbek:</span>
+      <span class="speech"><em>(rasm daftarini tomoshabinga ko'rsatib)</em> Men maktabimni chizib yuraman — har bir devor, har bir darchadan kiruvchi quyosh... ko'rishingizga ruxsat bering!</span>
+    </div>
+
+    <hr class="divider">
+
+    <div class="speaker-line">
+      <span class="speaker">Jasur:</span>
+      <span class="speech"><em>(kitobni yumib)</em> Tarix fani bo'yicha davlat miqyosida 2-o'rin. Lekin men o'qituvchimdan ko'proq narsani o'rgandim: voqealardan emas — odamlardan o'rganing!</span>
+    </div>
+
+    <hr class="divider">
+
+    <div class="speaker-line">
+      <span class="speaker">Sarvinoz:</span>
+      <span class="speech"><em>(she'r varaqchasini ko'tarib, jilmayib, ko'zlarida yosh)</em> Mening she'rim respublika gazetasida chop etildi. O'sha kuni...</span>
+    </div>
+    <div class="speaker-line">
+      <span class="speaker">Sarvinoz:</span>
+      <span class="speech">...onam meni birinchi marta «shoira qizim» deb chaqirdi.</span>
+    </div>
+
+    <hr class="divider">
+
+    <div class="speaker-line">
+      <span class="speaker">Nilufar:</span>
+      <span class="speech"><em>(gazeta ko'tarib)</em> Maktab gazetasining bosh muharriri! Biz — ovozlar. Siz esa — bizning o'quvchilarimiz!</span>
+    </div>
+
+    <hr class="divider">
+
+    <div class="speaker-line">
+      <span class="speaker">Temur:</span>
+      <span class="speech"><em>(davra o'rtasiga chiqib, barchaga qarab)</em> Men jamoа kapitaniman. Sport — mening dilim. Lekin...</span>
+    </div>
+    <div class="stage">Temur to'xtaydi. Har bir sinfdoshiga ko'z bilan ishora qiladi.</div>
+    <div class="speaker-line">
+      <span class="speaker">Temur:</span>
+      <span class="speech">...eng kuchli jamoamiz — bu mana shu sahnadagi 7 nafar do'stimdir!</span>
+    </div>
+
+    <!-- 3-QISM -->
+    <div class="part-header">
+      <span class="part-num">3-QISM</span>
+      <span class="part-title">"Ustoz Nuri" — Minnatdorlik</span>
+      <span class="part-time">2:30 – 3:30</span>
+    </div>
+
+    <div class="stage">Musiqa to'xtaydi. Sarvinoz va Nilufar barchani joylaydi. Bitta stul o'rtada qoladi — bo'sh.</div>
+
+    <div class="speaker-line">
+      <span class="speaker">Sarvinoz:</span>
+      <span class="speech"><em>(bo'sh stulga qarab, sekin)</em> Bu stul — bo'sh emas. Bu yerda bizning ustozlarimiz o'tiribdi.</span>
+    </div>
+
+    <div class="speaker-line">
+      <span class="speaker">Jasur:</span>
+      <span class="speech">Meni tarixga sevdirgan ustozim — u har dars tugashida dedi: «Kelajak siz qo'lingizdadir!»</span>
+    </div>
+
+    <div class="speaker-line">
+      <span class="speaker">Sherzod:</span>
+      <span class="speech">Matematika o'qituvchim — uch bor tushuntirdi, kulmadi. To'rtinchi marta menga birga o'tirdi.</span>
+    </div>
+
+    <div class="speaker-line">
+      <span class="speaker">Mohira:</span>
+      <span class="speech">Jismoniy tarbiya ustozim — u hech qachon meni «yiqiladi» demadi. Shuning uchun men yiqilmadim.</span>
+    </div>
+
+    <div class="speaker-line">
+      <span class="speaker">Mirzo:</span>
+      <span class="speech">Matematika ustozim dedi: «Raqam — bu faqat belgi. Uning ortidagi fikr — bu sen.»</span>
+    </div>
+
+    <div class="speaker-line">
+      <span class="speaker">Asilbek:</span>
+      <span class="speech">Chizmachilik ustozim dedi: «Qo'llar aytolmagan gapni qog'ozga tushir.»</span>
+    </div>
+
+    <div class="speaker-line">
+      <span class="speaker">Temur:</span>
+      <span class="speech"><em>(oldinga chiqib)</em> Bizning barcha ustozlarimizga — RAHMAT!</span>
+    </div>
+
+    <div class="stage">Barcha birda bo'sh stulga qarab egiladi — ta'zim. Og'ir sukunat. Sahna hissiyot bilan to'ladi.</div>
+
+    <!-- 4-QISM -->
+    <div class="part-header">
+      <span class="part-num">4-QISM</span>
+      <span class="part-title">"Xotiralar Raqqosi" — Nostalgik Sahna</span>
+      <span class="part-time">3:30 – 4:30</span>
+    </div>
+
+    <div class="stage">Yengil, nostalgik musiqa boshlanadi. Mohira markazga chiqib raqs boshlar. Bu raqs emas — bu xotira. Birin-ketin barchasi qo'shiladi. Harakat — maktab kunlarining qayta tug'ilishi.</div>
+
+    <div class="speaker-line">
+      <span class="speaker">Nilufar:</span>
+      <span class="speech"><em>(raqs ichida, sekin)</em> Birinchi kun — o'limdek qo'rquvchi edim...</span>
+    </div>
+    <div class="speaker-line">
+      <span class="speaker">Jasur:</span>
+      <span class="speech">Birinchi «beshlik» — o'limdan balandroq edi!</span>
+    </div>
+    <div class="speaker-line">
+      <span class="speaker">Sarvinoz:</span>
+      <span class="speech"><em>(ohangdor)</em> Birinchi she'r — qog'ozda titradi...</span>
+    </div>
+    <div class="speaker-line">
+      <span class="speaker">Mirzo:</span>
+      <span class="speech">Birinchi olimpiada — kalkulyatorsiz yutdim!</span>
+    </div>
+    <div class="speaker-line">
+      <span class="speaker">Temur:</span>
+      <span class="speech"><em>(barchani davrasiga chaqirib)</em> Va biz — hamma «birinchi»larimizni bu sahna — bu MAKTAB — bizga berdi!</span>
+    </div>
+
+    <div class="stage">Raqsdan keyin barcha doira hosil qiladi. Qo'llar bir-biriga tegadi.</div>
+
+    <!-- 5-QISM -->
+    <div class="part-header">
+      <span class="part-num">5-QISM</span>
+      <span class="part-title">"Maktab Siri" — Kulgi Skech 😄</span>
+      <span class="part-time">4:30 – 5:00</span>
+    </div>
+
+    <div class="stage">Barcha "sinf xonasi"da joylashadi. Nilufar "o'qituvchi" bo'lib o'rtaga chiqadi — ko'rsatkich tayoq bilan.</div>
+
+    <div class="speaker-line">
+      <span class="speaker">Nilufar:</span>
+      <span class="speech"><em>(jiddiy ustoz ohangida)</em> Yaxshi sinf! Bugun dars mavzusi — O'TMISH ZAMON!</span>
+    </div>
+    <div class="speaker-line">
+      <span class="speaker">Mirzo:</span>
+      <span class="speech"><em>(darrov qo'l ko'tarib)</em> Ustoza! O'tmish zamon — bu kechami?</span>
+    </div>
+    <div class="speaker-line">
+      <span class="speaker">Nilufar:</span>
+      <span class="speech">Yo'q, Mirzo!</span>
+    </div>
+    <div class="speaker-line">
+      <span class="speaker">Sherzod:</span>
+      <span class="speech"><em>(qo'l ko'tarib)</em> O'tmish zamon — bu to'lqin bo'ladimi, ustoza?</span>
+    </div>
+    <div class="speaker-line">
+      <span class="speaker">Nilufar:</span>
+      <span class="speech"><em>(boshini chayqab)</em> Sherzod, bu fizika emas!</span>
+    </div>
+    <div class="speaker-line">
+      <span class="speaker">Asilbek:</span>
+      <span class="speech"><em>(qo'l ko'tarib)</em> Uni chizib ko'rsateymi?!</span>
+    </div>
+    <div class="speaker-line">
+      <span class="speaker">Nilufar:</span>
+      <span class="speech"><em>(kulimsirab)</em> Chizmachilik ham emas!</span>
+    </div>
+    <div class="speaker-line">
+      <span class="speaker">Temur:</span>
+      <span class="speech"><em>(qo'l ko'tarib)</em> Ustoza! Men javobni bilaman — o'tmish zamon bu YUGURISHmi?!</span>
+    </div>
+    <div class="stage">Barcha birdan kuladi. Zal ham kuladi.</div>
+    <div class="speaker-line">
+      <span class="speaker">Nilufar:</span>
+      <span class="speech"><em>(kulib)</em> O'tmish zamon — bu biz! Biz hozir ham kechagi kichkina o'quvchilarmiz!</span>
+    </div>
+    <div class="speaker-line">
+      <span class="speaker">Jasur:</span>
+      <span class="speech"><em>(jiddiy qiyofa bilan)</em> Demak... biz tarix bo'ldikmi?</span>
+    </div>
+    <div class="speaker-line">
+      <span class="speaker">Temur:</span>
+      <span class="speech"><em>(ko'krak kerib)</em> Ha! Biz — MAKTAB TARIXI!</span>
+    </div>
+
+    <!-- 6-QISM FINAL -->
+    <div class="part-header">
+      <span class="part-num">6-QISM</span>
+      <span class="part-title">"Kelajak Qo'limizda" — Yakuniy</span>
+      <span class="part-time">5:00 – 6:00</span>
+    </div>
+
+    <div class="stage">Musiqa to'xtaydi. Barcha qator bo'lib turadi. Chiroq asta pasayadi — faqat ular yoritilgan.</div>
+
+    <div class="speaker-line">
+      <span class="speaker">Sarvinoz:</span>
+      <span class="speech"><em>(she'r o'qish ohangida)</em></span>
+    </div>
+
+    <div class="poetry">
+      <div class="poet-name">Sarvinoz she'r o'qiydi — barcha quloq soladi:</div>
+      Maktab — bu birinchi qadamimiz,<br>
+      ustozlar — bizning oyimiz, otimiz.<br>
+      Har dars — bir umr so'zlanmagan gap,<br>
+      har baho — yurakda qoladigan iz...
+    </div>
+
+    <div class="speaker-line">
+      <span class="speaker">Nilufar:</span>
+      <span class="speech">Biz shu maktabdan chiqdik — va biz shu maktabni <strong>yuragimizda</strong> olib yuramiz!</span>
+    </div>
+
+    <div class="speaker-line"><span class="speaker">Mirzo:</span><span class="speech">Raqamlar orasida — sevgi bor!</span></div>
+    <div class="speaker-line"><span class="speaker">Sherzod:</span><span class="speech">Ixtirolar orasida — orzular bor!</span></div>
+    <div class="speaker-line"><span class="speaker">Asilbek:</span><span class="speech">Chiziqlar orasida — hayot bor!</span></div>
+    <div class="speaker-line"><span class="speaker">Mohira:</span><span class="speech">Yugurish orasida — iroda bor!</span></div>
+    <div class="speaker-line"><span class="speaker">Jasur:</span><span class="speech">Tarix sahifalarida — biz bormiz!</span></div>
+    <div class="speaker-line"><span class="speaker">Temur:</span><span class="speech">Va jamoamizda — g'alaba bor!</span></div>
+
+    <div class="stage">Barcha birga qo'l ushlaydi. Doira hosil qiladi. Sekin o'rtaga yaqinlashadi. Yorug' asta o'chadi...</div>
+
+    <div class="chorus">
+      <div class="label">Hammasi birga — ohangdor, yurakdan</div>
+      <p>
+        «Maktabimiz — faxrimiz,<br>
+        Ustozlarimiz — nurlarimiz,<br>
+        Kelajak — bizning qo'limizda!»
+      </p>
+    </div>
+
+    <div class="stage">Sahna to'liq qorong'u. Faqat ularning siluetlari ko'rinadi. Sukunat. Keyin — qarsak. 👏</div>
+
+    <!-- SAHNA KO'RSATMALARI -->
+    <div class="notes">
+      <h3>🎬 Sahna Ko'rsatmalari</h3>
+      <div class="notes-grid">
+        <div class="note-item"><span class="note-icon">🎵</span><span>Musiqa: Nostalgik fortepiano, an'anaviy o'zbek kuy aranjirovkasi. 4-qism uchun yengilroq ritm.</span></div>
+        <div class="note-item"><span class="note-icon">👗</span><span>Kiyim: Maktab formasi — qizlar oq ko'ylak + jigarrang yubka, o'g'illar qora shim + oq ko'ylak. Yoqada kichkina milliy naqsh.</span></div>
+        <div class="note-item"><span class="note-icon">🎭</span><span>Rekvizit: Eski kitob, kalkulyator, rasm daftari, gazeta, sport sumkasi, qog'oz raketa, bo'r, doska.</span></div>
+        <div class="note-item"><span class="note-icon">💡</span><span>Yorug': Boshlanish — to'liq qorong'u. Sherzod lampochkasi — keskin yorug'. Final — asta o'chib ketish.</span></div>
+        <div class="note-item"><span class="note-icon">⏱</span><span>Sahna: 0:00 Harakatsiz → 0:45 Galeriya → 2:30 Bo'sh stul → 3:30 Raqs → 5:00 Qator → 6:00 Qorong'u.</span></div>
+        <div class="note-item"><span class="note-icon">😄</span><span>5-qism skech — o'yinbop, erkin improvizatsiya mumkin. Tomoshabinni kuldirishga e'tibor bering!</span></div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <div class="footer">
+    🏆 «TURON» TANLOVIGA OMAD! — Maktabingiz faxri siz bilan!
+  </div>
+
+</div>
+</body>
+</html>
